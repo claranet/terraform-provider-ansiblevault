@@ -1,0 +1,35 @@
+project_name: terraform-provider-ansiblevault
+
+builds:
+  - binary: "terraform-provider-ansiblevault_{{.Tag}}"
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - 386
+    ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: solaris
+        goarch: 386
+      - goos: darwin
+        goarch: arm
+      - goos: openbsd
+        goarch: arm
+      - goos: windows
+        goarch: arm
+      - goos: solaris
+        goarch: arm
+      - goos: freebsd
+        goarch: arm
+
+archives:
+  - format: zip
+    files:
+      - none*
+
+release:
+  github:
+    owner: claranet
+    name: terraform-provider-ansiblevault
